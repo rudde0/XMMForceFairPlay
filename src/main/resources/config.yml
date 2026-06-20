@@ -10,3 +10,20 @@
 #   NONE: Does not enforce any restrictions (plugin does nothing)
 
 MODE: "FAIR-PLAY"
+
+# Only send the fair-play control message to players who have a Xaero map mod
+# installed (auto-detected via their plugin channels). This prevents vanilla
+# players from seeing an empty chat line from the control message.
+#   false: send to everyone without the bypass permission (default)
+#   true:  send only to detected Xaero's Minimap / World Map users
+XAERO-ONLY: false
+
+# Restrict the fair-play control message to specific worlds. On join or world
+# change the message is only sent if the player's current world is in this list.
+# Leave empty ([]) to enforce in ALL worlds (default). Names match case-insensitively.
+# Example:
+#   WORLDS:
+#     - world
+#     - world_nether
+#     - world_the_end
+WORLDS: []

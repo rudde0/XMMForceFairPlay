@@ -28,17 +28,6 @@ public class PlayerChangedWorldListener implements Listener {
      */
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerChangedWorld(PlayerChangedWorldEvent event) {
-
-        if (event.getPlayer().hasPermission("fairplay.bypass")) return;
-
-        String string = plugin.getModeManager().getString();
-
-        if (string != null) {
-            plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
-                if (event.getPlayer().isOnline()) {
-                    plugin.getPacketManager().sendString(event.getPlayer(), string);
-                }
-            }, 10L);
-        }
+        plugin.sendControlTo(event.getPlayer());
     }
 }

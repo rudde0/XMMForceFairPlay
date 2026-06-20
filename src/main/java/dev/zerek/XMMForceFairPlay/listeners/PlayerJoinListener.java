@@ -28,14 +28,6 @@ public class PlayerJoinListener implements Listener {
      */
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerJoin(PlayerJoinEvent event) {
-
-        if (event.getPlayer().hasPermission("fairplay.bypass")) return;
-
-        String string = plugin.getModeManager().getString();
-
-        if (string != null) {
-            plugin.scheduler.entity(event.getPlayer()).runDelayed(() ->
-                    plugin.getPacketManager().sendString(event.getPlayer(), string), 10L);
-        }
+        plugin.sendControlTo(event.getPlayer());
     }
 }
